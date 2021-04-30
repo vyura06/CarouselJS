@@ -40,5 +40,5 @@ if (localStorage.getItem('notShow') != "true") {
   right.addEventListener('click', next);
   btnClose.addEventListener('click', close);
 
-  setTimeout(function () { container.style.display = 'block'; }, 0);
+  setTimeout(function () { container.style.display = 'block'; }, 5000);
 }
