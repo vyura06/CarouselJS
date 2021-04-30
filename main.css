@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+#layer1 {z-index: 4;}
+#layer2 {z-index: 3;}
+
+body {
+  height: 200vh;
+  background: #eee;
+}
+.container {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 30%;
+  margin-top: 0px;
+}
+.carousel {
+  border: 2px solid #416be4;
+  height: 350px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.slider {
+  display: flex;
+  height: 100%;
+  width: 400%;
+}
+.slider section {
+  flex-basis: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 20px;
+}
+.left, .right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.arrow i {
+  font-size: 70px;
+  color: #416be4;
+}
+.left {
+  left: 10px;
+}
+.right {
+  right: 10px;
+}
+.control ul {
+  list-style: none;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  transform: translate(-50%);
+}
+.control ul li {
+  width: 10px;
+  height: 10px;
+  background:#416be4;
+  border: 2px solid #416be4;
+  border-radius: 50px;
+  margin: 10px;
+  cursor: pointer;
+}
+.control ul li.selected {
+  background: transparent;
+}
+
+/*......................Кнопка закрытия......................*/
+.buttonClose {
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-left: 90%;
+  cursor: pointer;
+}
+.buttonClose:before {
+  content: '+';
+  color: #416be4;
+  position: absolute;
+  z-index: 2;
+  transform: rotate(45deg);
+  font-size: 50px;
+  line-height: 1;
+  top: -5px;
+  left: 6px;
+  transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+}
+.buttonClose:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background: #337AB7;
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+  transform: scale(0.01);
+}
+.buttonClose:hover:after {
+  transform: scale(1);
+}
+.buttonClose:hover:before {
+  transform: scale(0.8) rotate(45deg);
+  color: #fff;
+}
+
+/*......................Переключатель......................*/
+.toggle-wrap {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+}
+.toggle-control {
+  display: block;
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 11px;
+  cursor: pointer;
+  font-size: 11px;
+  user-select: none;
+}
+.toggle-control input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.toggle-control input:checked ~ .control {
+  background-color: #416be4;
+}
+.toggle-control input:checked ~ .control:after {
+  left: 30px;
+}
+.toggle-control .control {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 50px;
+  border-radius: 12.5px;
+  background-color: darkgray;
+  transition: background-color 0.15s ease-in;
+}
+.toggle-control .control:after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 12.5px;
+  background: white;
+  transition: left 0.15s ease-in;
+}
